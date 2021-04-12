@@ -45,3 +45,12 @@
   margin-bottom: 10px;
 
 }
+
+.search {
+  text-align: center;
+  display: block;
+  padding: 6px 20px;
+  border: solid;
+  margin: 8px auto;  
+  font-size: 17px;
+}

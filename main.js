@@ -25,7 +25,7 @@ class ProductsList {
         this.container = document.querySelector(container);
         this._fetchData();
         this._render();
-        this.totalPrice();
+        // this.totalPrice();
     }
 
 
@@ -46,24 +46,70 @@ class ProductsList {
     }
 }
 
-  totalPrice() {
-    for (let i=0; i < this.products.length; i++) { 
-    let totalPrice = 0;
-    totalPrice = totalPrice + this.price  //ne znayu chti zdes dobavit chtob vitashit price iz klassa Product
-  }
-     }
+//   totalPrice() {
+//     for (let i=0; i < this.products.length; i++) { 
+//     let totalPrice = 0;
+//     totalPrice = totalPrice + this.price  //ne znayu chti zdes dobavit chtob vitashit price iz klassa Product
+//   }
+//      }
 }
 
-// class Cart {
-//     constructor (itemName, price, quantity, total) {
-//         this.itemName = itemName;  //nazvaniye produkta
-//         this.price = price; //cena produkta
-//         this.quantity = quantity; //kolichestvo tovarov
-//         this.total = total; //cena vsex tovarov v korzine
-//     }
+class Cart {
+    constructor () {
+        this.items = [];
+    }
 
+    push(cartItem) {
+        this.items.push(cartItem);
+    }
 
-// }
+    delete (id) {
+
+    }
+
+    get totalPrice() {
+        return 0;
+    }
+}
+
+class CartItem {
+    constructor(good) {
+        this.good = good;
+    }
+}
 
 
 const list = new ProductsList();
+const cart = new Cart();
+const addToCart = (good) => cart.push(new CartItem(good))
+
+
+// const fetch = (method, url) => {
+//     let xhr;
+
+//     if (window.XMLHttpRequest) {
+//         xhr = new XMLHttpRequest();
+//     } else if (window.ActiveXObject) {
+//         xhr = new ActiveXObject("Microsoft.XMLHTTP");
+//     }
+
+//     xhr.onreadystatechange = () => {
+//         if (xhr.readyState === 4) {
+//             console.log(xhr.responseText);
+//             console.log(xhr.responseXML)
+//         }
+//     }
+
+//     xhr.open(method, url);
+//     xhr.timeout = 15000;
+
+//     xhr.send();
+// }
+
+// const URL = "https://jsonplaceholder.typicode.com/photos";
+// fetch('GET', URL);
+
+
+const text = "Everything is amazing. 'Rufat, how come you are so upset?' What happened? 'I kinda unlucky' Don't know what though";
+const replacing = text.replace(/\B'|'\B/g, "\"");
+console.log(replacing);
